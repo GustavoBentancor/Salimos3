@@ -1,0 +1,16 @@
+{% load socialaccount %}
+{% block title %}Inicia Sesión{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit">
+    </form>
+    <button class="btn btn-secondary btn-block mt-5" type="submit">Sign in!</button>
+        <a class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="oauth2" %}">
+            <span class="fab fa-facebook"></span>
+            Login with facebook
+        </a>
+
+{% endblock content %}

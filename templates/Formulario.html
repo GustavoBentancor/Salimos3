@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <link rel="stylesheet" href="{% static 'formulario.css' %}">
+        </head>
+    <body>
+    <form class="formularioregistro" action="" method="POST">
+            {% csrf_token %}
+                <label id="nombreusuario" for="id_username">Nombre de Usuario:</label>
+                <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username"><br><span class="helptext">Necesario. 150 caracteres o menos. Letras, dígitos y @ /. / + / - / _ solamente.</span><br/>
+                <label id="correo" for="id_email">Correo:</label><br/>
+                <input type="email" name="email" required="" id="id_email"><br/>
+                <label id="preimernombre" for="id_first_name">Primer Nombre:</label><br/>
+                <input type="text" name="first_name" maxlength="140" required="" id="id_first_name"><br/>
+                <label id="segundonombre" for="id_last_name">Segundo nombre:</label><br/>
+                <input type="text" name="last_name" maxlength="140" id="id_last_name"><br/>
+                <label id="contraseña" for="id_password1">Contraseña:</label><br/>
+                <input type="password" name="password1" required="" id="id_password1"><br><span class="helptext"><ul><li>Su contraseña no puede ser demasiado similar a su otra información personal.</li><li>Su contraseña debe contener al menos 8 caracteres.</li><li>Su contraseña no puede ser una contraseña de uso común</li><li>Su contraseña no puede ser completamente numérica.</li></ul></span><br/>
+                <label id="confirmacontraseña" for="id_password2">Confirmar contraseña:</label><input type="password" name="password2" required="" id="id_password2"><br><span class="helptext">Introduzca la misma contraseña que antes, para verificación.</span><br/>
+
+
+            <input type="submit" name="submit">
+        </form>
+<p><a href="/#marco1" ><img src="{% static 'css/botones/volver.png' %}" width="15%x" height="9%" ></a></p>
+
+    </body>
+</html>

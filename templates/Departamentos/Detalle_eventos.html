@@ -1,0 +1,87 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="Es">
+
+<head>
+		<title>Eventos</title>
+		<link rel="stylesheet" href="static/css/maquetacion.css" type="text/css"/>
+
+    <script>
+        {
+            history.pushState(null, "", "/Detalle_eventos?id_evento={{ item.0 }}");
+        }
+    </script>
+
+
+
+</head>
+
+  <body>
+
+		<div id ="contenedor">
+          <div style="text-align-last: center">
+          <h2>{{item.1}}</h2><br><br>
+          </div>
+    </div><br>
+
+	  <div id ="menu">
+          <div style="text-align-last: center">
+          <h2>Horario {{item.16  }} <br/> Contacto {{item.10  }} <br/> Dirección {{item.14  }} {{item.11}}</h2>
+          </div>
+    </div>
+
+
+    <div id ="submenu">
+          <div style="text-align-last: rigth">
+          <h2> Fecha {{item.4  }}  
+              <br/> Detalle  {{item.3  }} </h2>
+          </div>
+    </div>
+
+   <div class=section>
+       
+             <div class="container" style="text-align-last: center">
+		    <h2><img width="100%" height="60%" src="static/img/{{item.17}}"></h2>
+            </div>
+
+	    <div id ="container1">
+		    <h3><iframe src="{{item.15}}" width="100%" height="60%"></iframe></h3>
+            </div>
+        </div>
+    
+    
+<footer>
+        <div id ="pie">
+              <div style="text-align-last: center">
+                  <h2><!--h2>Tarjetas: {{item.9}}  <br/> Platos{{item.11}}   <br/> Gasto promedio:{{item.12}}  <br/> Servicios:{{item.13}} -->  <br/>  <a href="{{item.13 }}" target="blank">{{item.13 }}</a></h2><br>
+              </div>
+        </div>
+
+        <div id ="pie2">
+            <div style="text-align-last: center">
+                <h2>
+                    <p> Deja tu opinion </p>
+                    <textarea name="mensaje" id="txtComentario" placeholder="Comparte tu experiencia"></textarea>
+                    <p><button onclick="Guardarcomentario()" value="Enviar mensaje">Enviar mensaje</button></p>
+                    <script>
+                        function Guardarcomentario() {
+                            var idevento= {{item.0}}
+                            var Comentario= document.getElementById("txtComentario").value;
+                            window.location.href = "/Comentar_id?id="+idevento+ "&comentario="+Comentario+"&tipo=E";
+                        }
+                    </script>
+                </h2>
+            </div>
+        </div>
+            <br/>
+
+            <br/>
+            <p><a href="/" ><img src="{%static 'css/botones/volver.png'%}" width=130px height=70px/></a> </p>
+  <div>
+      {% for comentario in comentarios %}
+            <p> {{ comentario.5 }}</p>
+
+      {% endfor %}
+  </div>
+	  </footer>
+    </body>
+</html>

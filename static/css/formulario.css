@@ -1,0 +1,33 @@
+body{
+  background-image: url("https://i.pinimg.com/originals/9b/c9/8f/9bc98f55db5737c6b9601ea215f14467.jpg")
+}
+
+h1  {
+  text-align: center;
+  margin-top: 8px;
+  background-color: orange;
+  font-family: 'Tangerine', serif;
+  font-style: oblique;
+  font-size: 90px;
+  top: 500px;
+  text-shadow: 6px 6px 6px rgb(124, 102, 60);
+}
+
+p {
+color: white;
+}
+
+li{
+color: white;
+}
+
+@media all and screen and (min-width :768px) {
+  text-align:center;
+}
+#nombreusuario,#correo, #preimernombre, #contraseña,#confirmacontraseña,#segundonombre{
+  color: #cccccc;
+}
+.helptext{
+  color: #5BA546;
+}}
+

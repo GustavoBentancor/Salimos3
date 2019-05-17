@@ -1,0 +1,52 @@
+#contenedor{
+        background-image:     linear-gradient(green, violet);
+        border:5px solid #5BA546;
+  }
+
+#menu{
+        background-color:#C8CACC;
+        border:5px solid #5BA546;
+}
+
+#submenu{
+        height:20%;
+        background-color:none;
+        border:5px solid #5BA546;
+}
+
+#izquierda{
+        height:50%;
+        background-color:#DAF7E2;
+        float:left;
+<<<<<<< HEAD
+        width:47%;
+=======
+        width:48%;
+>>>>>>> 0b01617ab197923828067974c191de3bbb9ca763
+        border:5px solid #5BA546;
+}
+
+#derecha{
+        height:50%;
+        background-color:#DAF7E2;
+        float:right;
+<<<<<<< HEAD
+        width:46%;
+=======
+        width:47%;
+>>>>>>> 0b01617ab197923828067974c191de3bbb9ca763
+        border:7px solid #5BA546;
+}
+
+#pie{
+        background-color:#DAF7E2;
+        border:5px solid #5BA546;
+        
+}
+    
+#pie2{
+        background-color:#DAF7E2;
+        border:5px solid #5BA546;
+}
+
+

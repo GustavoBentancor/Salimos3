@@ -1,0 +1,78 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="Es">
+
+<head>
+		<title>Para niños</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link rel="stylesheet" href="static/css/maquetacion.css" type="text/css"/>
+</head>
+
+  <body>
+
+		<div id ="contenedor">
+          <div style="text-align-last: center">
+          <h2>{{item.1 }}</h2><br><br>
+          </div>
+    </div><br>
+
+	  <div id ="menu">
+          <div style="text-align-last: center">
+          <h2>Horario {{item.16  }} <br/> Contacto {{item.10 }} <br/> Dirección {{item.14  }} <br/> Ciudad {{item.11  }} </h2>
+          </div>
+    </div>
+
+
+    <div id ="submenu">
+          <div style="text-align-last: rigth">
+          <!--h2>Fecha Inicio {{item.4  }} Hasta  {{item.5  }}</h2-->
+          </div>
+    </div>
+
+    <div class="section">
+          
+               <div class="container" style="text-align-last: center">
+                  <div style="imagenes">
+                     <h3><img width="100%" height="60%" src="static/img/{{item.17}}"></h3>
+                  </div>
+                </div>
+          
+		<div class="container1">
+              <div style="text-align-last: center">
+                 <h2><iframe src="{{item.15}}" width="100%" height="60%"></iframe></h2>
+              </div>
+            </div>
+    </div>
+<footer>
+        <div id ="pie">
+              <div style="text-align-last: center">
+              <!--h2>Tarjetas: {{item.9}}  <br/> Platos {{item.11}}   <br/> Gasto promedio:{{item.12}}  <br/-->    <br/> Pagina <a href ={{item.13}} target="blank">{{item.13 }}</a><br>
+              </div>
+        </div>
+
+        <div id ="pie2">
+                    <div style="text-align-last: center">
+                        <h2>
+                            <p> Deja tu opinion </p>
+                             <textarea name="mensaje" id="txtComentario" placeholder="Comparte tu experiencia"></textarea>
+                              <p><button onclick="Guardarcomentario()" value="Enviar mensaje">Enviar mensaje</button></p>
+                                <script>
+                                    function Guardarcomentario() {
+                                        var idEvento = {{ item.0}}
+                                        var Comentario = document.getElementById("txtComentario").value;
+                                        window.location.href = "/Comentar_id?id=" + idEvento + "&comentario=" + Comentario + "&tipo=E";
+                                                                }
+                                    </script>
+                        </h2>
+                    </div>
+                     {% for comentario in comentarios %}
+                        <p> {{ comentario.5 }}</p>
+
+                  {% endfor %}
+                </div>
+            <br/>
+
+            <br/>
+            <p><a href="/" ><img src="{%static 'css/botones/volver.png' %}" width="130px" height="70px"></a> </p>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="Es">
+
+<head>
+	<title>Criollas</title>
+	<link rel="stylesheet" href="static/css/maquetacion.css" type="text/css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+	<div id ="contenedor"><br><br>
+		<div style="text-align-last: center">
+                <h2>{{item.1 }}</h2><br><br>
+                </div>
+        </div><br>
+
+	<div id ="menu">
+                <div style="text-align-last: center">
+                <h2>Fecha Inicio: {{item.4}} hasta: {{item.5 }}  Horario: {{item.16  }} <br/>Dirección: {{item.14}} <br/>Ciudad: {{item.11}}   </h2>
+                </div>
+        </div>
+
+
+    <div id ="submenu">
+          <div style="text-align-last: rigth">
+          <h2>{{item.3}} </h2>
+          </div>
+    </div>
+
+    <div class=section>
+        
+            <div class="container" style="text-align-last: center">
+		    <h3><img width="100%" height="60%" src="static/img/{{item.17}}"></h3> 
+            </div>
+       
+	    <div id ="container1">
+		    <h2><iframe src="{{item.15}}" width="100%" height="60%"></iframe></h2>
+            </div>
+        </div>  
+   
+	
+    <footer>
+	   <div id ="pie">
+		   <div style="text-align-last: center">
+			   <h2> <a href ={{item.13}} target="blank">{{item.13 }} </a></h2><br>
+                   </div>
+            </div>
+
+            <div id ="pie2">
+                   <div style="text-align-last: center">
+                        <h2>
+                              <p> Deja tu opinion </p>
+                              <textarea name="mensaje" id="txtComentario" placeholder="Comparte tu experiencia"></textarea>
+                              <p><button onclick="Guardarcomentario()" value="Enviar mensaje">Enviar mensaje</button></p>
+                              <script>
+                                  function Guardarcomentario() {
+                                      var idevento= {{item.0}}
+                                      var Comentario= document.getElementById("txtComentario").value;
+                                      window.location.href = "/Comentar_id?id="+idevento+ "&comentario="+Comentario+"&tipo=Cr";
+                                  }
+                              </script>
+                          </h2>
+                    </div>
+                </div><br><br>
+            <p><a href="/Criollas" ><img src="{%static 'css/botones/volver.png' %}" width=130px height=70px></a> </p>
+            <div>
+                  {% for comentario in comentarios %}
+                        <p> {{ comentario.5 }}</p>
+            
+                  {% endfor %}
+             </div>
+	</footer>
+</body> 
+</html>

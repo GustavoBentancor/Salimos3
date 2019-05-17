@@ -1,0 +1,41 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="ES">
+{% block jk %}
+                <head>
+                        <link rel="stylesheet" href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+                        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+                        <link rel="stylesheet" href="{% static 'css/mievento/enfamilia.css' %}">
+                        
+                        <title>Cines</title>
+                        <h1> Salas de Cine </h1>
+
+                </head>
+                <body>
+                        <br/>
+                            <p><a href="/#marco0" ><img src="static/css/botones/irainicio.png" width=130px height=70px ></a> </p>
+                        <div class="datagrid">
+                            <table>
+                                    <thead>
+				                <tr>
+					                <th>Nombre</th>
+                                    <th>Barrio</th>
+                                    <th>Ciudad</th>
+                                    <th>Departamento</th>
+				                </tr>
+			                </thead>
+			                <tbody>
+                                {% for Evento in Cine %}
+                                <tr>
+                                    <td>{{ Evento.2 }} <a href="{% url 'Detalle_Cine' %}?id_Cine={{ Evento.0 }}">Detalle</a></td>
+                                    <td>{{ Evento.5 }}</td>
+                                    <td>{{ Evento.4 }}</td>
+                                    <td>{{ Evento.19 }}</td>
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                        <p><a href="/#marco2" ><img src="static/css/botones/volver.png" width=130px height=70px ></a> </p>
+                </body>
+{% endblock %}
+</html>

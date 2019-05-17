@@ -1,0 +1,38 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="Es">
+			<head>
+                     <link rel="stylesheet" href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+                     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+                     <link rel="stylesheet" href="{% static 'css/mievento/enfamilia.css' %}">
+				<title>Turismo</title>
+			</head>
+	<body>
+
+			<h1><i><img src="{% static 'Lugares.png' %}"  width= 220px height=180px></i></h1>
+
+                                <p><a href="/" ><img src="static/css/botones/irainicio.png" width="130px" height="70px"></a> </p>
+
+		<div class="datagrid">
+                <h3 id="lugaresturi"></h3>
+			<table>
+				<thead>
+
+					<tr>
+						<th>Nombre</th>
+						<th>Direccion</th>
+						<th>Barrio</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for Lugart in Lugart %}
+					<tr>
+                        <td>{{ Lugart.2 }} <a href="{% url 'Detalleturi' %}?id_detalleturi={{ Lugart.0 }}">Detalle</a></td>
+						<td>{{Lugart.6  }}</td>
+						<td>{{ Lugart.5 }}</td>
+					</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+		</div>
+<p><a href="/#marco1" ><img src="static/css/botones/volver.png" width="130px" height="70px"></a></p>	</body>
+</html>

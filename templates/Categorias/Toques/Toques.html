@@ -1,0 +1,43 @@
+{% load static %}{% load staticfiles %}{% load i18n %}
+<html lang="ES">
+    {% block jk %}
+                    <head>
+                                <link rel="stylesheet" href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+                                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+                                <link rel="stylesheet" href="{% static 'css/mievento/enfamilia.css' %}">
+                            
+                            <title>Toques</title>
+
+                            <h1><i><img src="{% static 'css/botones/titulos/Toques.png' %}" width= 180px height=140px></i></h1>
+
+                    </head>
+                    <body>
+                            <br/>
+                            <p><a href="/#marco0" ><img src="static/css/botones/irainicio.png" width=130px height=70px ></a> </p>
+                        <div class="datagrid">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Detalle</th>
+                                        <th>Ciudad</th>
+                                        <th>Departamento</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                        {% for Evento in Toques %}
+                                        <tr>
+                                            <td>{{ Evento.1 }} <a href="{% url 'Detalle_Toques' %}?id_Toques={{ Evento.0 }}">Detalle</a></td>
+                                            <td>{{ Evento.3 }}</td>
+                                            <td>{{ Evento.11}}</td>
+                                            <td>{{ Evento.18}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                     <p><a href="/#marco2" ><img src="static/css/botones/volver.png" width=130px height=70px ></a> </p>
+                        </div>         
+                </body>
+         {% endblock %}
+    </html>

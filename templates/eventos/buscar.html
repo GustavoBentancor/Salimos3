@@ -1,0 +1,34 @@
+{% load i18n %}{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Busqueda</title>
+        <link rel="stylesheet" href="static/css/maquetacion.css" type="text/css"/>
+    </head>
+
+    <body>
+        <p><a href="/" ><img src="{%static 'css/botones/volver.png' %}" width="10%" height="6%"></a></p>
+
+        <h1>Resultados encontrados... </h1>
+                                {% block content %}
+                                {% for abc in obj %}
+                                            <p>{{abc.nombre}}</p>
+                                            <p>{{abc.detalle}}</p>
+                                    <a href="{% url 'detalle_eventos' %}?id_evento={{ abc.idevento }}">Ver detalles</a>
+
+
+
+                                {% endfor %}
+                                    {% for abc in lugar %}
+                                        <p>{{ abc.nombre }}</p>
+                                    <a href="{% url 'detalle_lugares' %}?id_lugar={{ abc.idlugar}}">Ver detalles</a>
+
+                                    {% endfor %}
+
+
+                                {% endblock %}
+        <br/><br/><br/><br/><br/>
+       <a href="#"> No encuetras lo que buscas ?</a>
+
+        </body>
+</html>

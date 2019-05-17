@@ -1,0 +1,93 @@
+{% load static %} {% load staticfiles %} {% load i18n %}
+<html lang="ES">
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.2"></script>"<br><br>
+
+
+  <head>
+  <title>Departamentos</title>
+
+<!-- lo siguiente elimina la puntuación delante de los botones de la pagina. Romina-->
+
+<style>
+  ul, li {
+    list-style:none;
+  }
+</style>
+
+
+  <link rel="stylesheet" href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  </head>
+  <body>
+
+
+    <div id= "superior">
+
+      <div>
+            <a href="{% url 'sign_up' %}">Registrarse</a> <br/>
+            <a href="{% url 'sign_in' %}">Iniciar session</a>
+            <a href="{% url 'sign_out'%}">Cerrar sesiom</a>
+
+     </div>
+     <h1><i><img src="{% static 'img/Salimostitulo.png' %}" width= 500px height=180px></i></h1>
+
+
+
+
+            <div id="columnaderecha"><br><br>
+
+              <div style= "text-align: center">
+                  <form method="POST" action="/templates/eventos/">{% csrf_token %}
+                      <input name="buscalo" placeholder="Buscar " type="text">
+                    <input type="submit" value="Buscar">
+                  </form>
+              </div><br><br><br>
+
+                <div style= "center" ><br><br>
+                <iframe width="380" height="280" src="https://www.youtube.com/embed/NUl_XVlIzkk?controls=0" frameborder="0" accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+
+
+
+            </div>
+
+
+            <div id="columna"><br>
+                <h2> Buscar por:</h2><br>
+                <ul>
+                </ul>
+
+                <div>
+                             <div style= "text-align: center">
+
+                    <li><a href="/"><img src="{% static 'css/botones/botoninicio.png'%}" width=130px height=70px></li><br><br>
+
+                    <li><a href="/"><img src="{% static 'css/botones/botonmieventoarreglado.png'%}" width=130px height=70px></li><br><br>
+
+                    <li><a href="/"><img src="static/css/botones/botoncategorias.png" width=130px height=70></a></li><br><br>
+
+                    <li><a href="/"><img src="static/css/botones/botondepartamento.png" width=130px height=70px></a></li><br><br>
+
+
+                              </div>
+                </div>
+            </div>
+        <div id="contenido">
+            <br/>
+            <br/>
+            <h6>{{ Depto.1 }}</h6>
+            <br/>
+            <br/>
+            <p><a href="/Departamento_eventos_list?id_depto={{ Depto.0 }}">IR A EVENTOS</a></p>
+            <p><a href="/Departamento_lugares_list?id_depto={{ Depto.0 }}">IR A LUGARES</a></p>
+            <br/>
+            <br/>
+            <p><a href="/" ><img src="static/css/botones/volver.png" width="130px" height="70px" ></a> </p>
+       </div>
+    </div>
+
+  </body>
+</html>

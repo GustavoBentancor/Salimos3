@@ -1,0 +1,23 @@
+Se cambio la ubicacion de la carpeta static ya que no hacia referencia a los archivos staticos
+Se añaddio al archivo models.py los modelos de la bd mediante el comando python manage.py inspectdb > models.py el cual importa los datos de la bd.
+Al realizar lo anterior es posible creear un formulario en la parte administrartiva para completar la bd 
+usando el archivo admin.py agregando lo siguiente
+from django.contrib import admin
+from .models import Funiciones, Categorias, Comentario, Lugares, Eventos, Edades, Departamentos
+
+
+admin.site.register(Funiciones)------> Register registra en el admin la clase 
+admin.site.register(Comentario)
+admin.site.register(Categorias)
+admin.site.register(Lugares)
+admin.site.register(Eventos)
+admin.site.register(Edades)
+admin.site.register(Departamentos)
+
+
+En views.py---->
+En la llamada de datos desde la bd se agrego una nueva linea
+indicando el nombre de la variable para mostrar en html
+ejemplo: Fecha = cursor.execute("Select Funiciones.Fecha from Funiciones")
+y luego return render_to_response('Cine/Cine.html', {'Funcion': Funcion}, {'Fecha': Fecha})
+para poder indicar cada campo de la tabla Funciones {'Fecha': Fecha}.
